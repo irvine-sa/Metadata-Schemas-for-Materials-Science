@@ -19,4 +19,7 @@ Sample files are also provided which are written according to the respective sch
 2. Schema for transmission electron microscopy (TEM)
   * [JSON Schema](TEM_schema.json)
 
-3. Upcoming...
+3. Schema for nanometer scale Computertomography (nano-CT)
+  * [nanoCT Schema](nanoCT_schema.xsd)
+
+4. Upcoming...
