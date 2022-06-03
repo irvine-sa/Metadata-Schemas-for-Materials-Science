@@ -48,6 +48,8 @@ instrument (required) - details concerning the instrument settings. It is define
 
 environment (optional) - details describing special sample environement, datatype environmentDetails
 
+dataProcessing (optional) - details concerning the processing of the acquired data
+
 measurementConditions (required) - describes the conditions during the measurement.
 
 measurementOutput (required) - describes the measurement output file characteristics.</xsd:documentation>
@@ -65,6 +67,7 @@ measurementOutput (required) - describes the measurement output file characteris
    <xsd:element name="researchQuestion" type="researchQuestionType"/>
    <xsd:element name="instrument" type="instrumentDetails"/>
    <xsd:element name="environment" type="environmentDetails"/>
+   <xsd:element name="dataProcessing" type="dataProcessingDetails"/>
    <xsd:element name="measurementConditions" type="measurementConditionsDetails"/>
    <xsd:element name="measurementOutput" type="measurementOutputDetails"/>
   </xsd:all>
@@ -990,6 +993,29 @@ coolingCell (optional) - describes a cooling cell setup, datatype string</xsd:do
    <xsd:element name="coolingCell" type="xsd:string" minOccurs="0"/>
   </xsd:all>
  </xsd:complexType>
+ <xsd:complexType name="dataProcessingDetails">
+  <xsd:annotation>
+   <xsd:documentation xml:lang="en">************************dataProcessingDetails***************************
+
+details concerning the processing of the acquired data
+
+children:
+
+phaseRetrieval (optional) - describes the details of the phase retrieval parameters setup, datatype phaseRetrievalDetails
+
+reconstruction (required) - describes the details of the reconstruction
+
+filtering (optional) - describes a filtering step, e.g. noise reduction filtering
+
+segmentation (optional) - describes the segmentation step, e.g. watershed</xsd:documentation>
+  </xsd:annotation>
+  <xsd:all>
+   <xsd:element name="phaseRetrieval" type="phaseRetrievalDetails" minOccurs="0"/>
+   <xsd:element name="reconstruction" type="reconstructionDetails"/>
+   <xsd:element name="filtering" type="filteringDetails" minOccurs="0"/>
+   <xsd:element name="segmentation" type="segmentationDetails" minOccurs="0"/>
+  </xsd:all>
+ </xsd:complexType>
  <xsd:complexType name="measurementOutputDetails">
   <xsd:annotation>
    <xsd:documentation xml:lang="en">************************measurementOutputDetails***************************
@@ -1246,6 +1272,42 @@ detectorBias (optional) - bias voltage applied to the detector expressed as comp
    <xsd:element name="lastCalibration" type="xsd:dateTime" minOccurs="0"/>
    <xsd:element name="detectorBias" type="voltageDetails" minOccurs="0"/>
   </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="phaseRetrievalDetails">
+  <xsd:annotation>
+   <xsd:documentation xml:lang="en">*************************phaseRetrievalDetails*************************
+gives details on the phase retrieval parameters.
+
+children:</xsd:documentation>
+  </xsd:annotation>
+  <xsd:all/>
+ </xsd:complexType>
+ <xsd:complexType name="reconstructionDetails">
+  <xsd:annotation>
+   <xsd:documentation xml:lang="en">*************************reconstructionDetails*************************
+gives details on the tomographic reconstruction.
+
+children:</xsd:documentation>
+  </xsd:annotation>
+  <xsd:all/>
+ </xsd:complexType>
+ <xsd:complexType name="filteringDetails">
+  <xsd:annotation>
+   <xsd:documentation xml:lang="en">*************************filteringDetails*************************
+gives details on the post processing filters.
+
+children:</xsd:documentation>
+  </xsd:annotation>
+  <xsd:all/>
+ </xsd:complexType>
+ <xsd:complexType name="segmentationDetails">
+  <xsd:annotation>
+   <xsd:documentation xml:lang="en">*************************segmentationDetails*************************
+gives details on the segmentation procedure.
+
+children:</xsd:documentation>
+  </xsd:annotation>
+  <xsd:all/>
  </xsd:complexType>
  <xsd:complexType name="eBeamDecelerationDetails">
   <xsd:annotation>
